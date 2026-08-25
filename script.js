@@ -1,32 +1,138 @@
 const foodButton = document.getElementById("foodButton");
-const foodCard = document.getElementById("foodCard");
-const closeFood = document.getElementById("closeFood");
 const todaySection = document.querySelector(".today");
+const lillyTip = document.querySelector(".lilly-tip");
+const quickActions = document.querySelector(".quick-actions");
+
+let foodCard = null;
+
+
+/* =========================
+   ESSEN ÖFFNEN
+   ========================= */
 
 function openFood() {
-  if (foodCard) {
-    foodCard.hidden = false;
-  }
 
+  // Tagesübersicht ausblenden
   if (todaySection) {
     todaySection.style.display = "none";
   }
+
+  // Lilly-Tipp der Hauptseite ausblenden
+  if (lillyTip) {
+    lillyTip.style.display = "none";
+  }
+
+  // Restaurantkarte nur einmal erzeugen
+  if (!foodCard) {
+
+    foodCard = document.createElement("section");
+    foodCard.className = "food-card";
+
+    foodCard.innerHTML = `
+      <div class="food-header">
+
+        <div>
+          <span class="food-label">LILLY EMPFIEHLT</span>
+          <h2>🍴 Essen in der Nähe</h2>
+        </div>
+
+        <button
+          class="close-food"
+          id="closeFood"
+          aria-label="Essensansicht schließen">
+          ×
+        </button>
+
+      </div>
+
+
+      <article class="restaurant">
+
+        <div class="restaurant-top">
+
+          <div>
+            <h3>Snack Matira</h3>
+            <p class="price">$$ · Polynesisch · unkompliziert</p>
+          </div>
+
+          <span class="distance">📍 5 Min.</span>
+
+        </div>
+
+        <p>
+          Lokale Küche direkt in der Nähe von Matira Beach.
+          Gut für ein entspanntes Mittagessen.
+        </p>
+
+        <div class="restaurant-actions">
+
+          <button
+            class="primary-action"
+            id="driveToRestaurant">
+            🧭 Hinfahren
+          </button>
+
+          <button id="callRestaurant">
+            📞 Anrufen
+          </button>
+
+        </div>
+
+      </article>
+
+
+      <article class="restaurant plan-b">
+
+        <span class="food-label">PLAN B</span>
+
+        <h3>Fare Manuia</h3>
+
+        <p>
+          Alternative in der Nähe · $$
+        </p>
+
+      </article>
+    `;
+
+    // Restaurantkarte direkt unter der Schnellwahl einsetzen
+    quickActions.insertAdjacentElement("afterend", foodCard);
+
+
+    // Schließen-Button aktivieren
+    const closeFood = document.getElementById("closeFood");
+
+    closeFood.addEventListener("click", closeFoodView);
+  }
+
+  // Falls Karte bereits existiert:
+  foodCard.style.display = "";
 }
 
+
+/* =========================
+   ESSEN SCHLIESSEN
+   ========================= */
+
 function closeFoodView() {
+
   if (foodCard) {
-    foodCard.hidden = true;
+    foodCard.style.display = "none";
   }
 
   if (todaySection) {
     todaySection.style.display = "";
   }
+
+  if (lillyTip) {
+    lillyTip.style.display = "";
+  }
 }
+
+
+/* =========================
+   ESSEN-BUTTON
+   ========================= */
 
 if (foodButton) {
   foodButton.addEventListener("click", openFood);
-}
-
-if (closeFood) {
-  closeFood.addEventListener("click", closeFoodView);
 }
