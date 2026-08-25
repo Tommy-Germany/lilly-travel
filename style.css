@@ -18,7 +18,10 @@ body {
   padding-bottom: 90px;
 }
 
-/* KOPFBEREICH */
+
+/* =========================
+   KOPFBEREICH
+   ========================= */
 
 .app-header {
   background: #176b70;
@@ -56,7 +59,10 @@ body {
   font-weight: bold;
 }
 
-/* REISEKARTE */
+
+/* =========================
+   REISEKARTE
+   ========================= */
 
 .trip-card {
   margin: 18px;
@@ -100,7 +106,10 @@ body {
   font-size: 0.9rem;
 }
 
-/* SCHNELLWAHL */
+
+/* =========================
+   SCHNELLWAHL
+   ========================= */
 
 .quick-actions {
   display: grid;
@@ -126,11 +135,14 @@ body {
   margin-bottom: 6px;
 }
 
-/* ESSEN / RESTAURANT */
+
+/* =========================
+   ESSEN / RESTAURANT
+   ========================= */
 
 .food-card {
   width: auto;
-  margin: 0 18px 22px;
+  margin: 0 18px 18px;
   padding: 16px;
   text-align: left;
   background: #f3f7f7;
@@ -148,7 +160,8 @@ body {
 
 .food-header h2 {
   margin: 3px 0 0;
-  font-size: 1.08rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: #183f43;
 }
 
@@ -237,7 +250,10 @@ body {
   margin-top: 9px;
 }
 
-/* TAGESPLAN */
+
+/* =========================
+   TAGESPLAN
+   ========================= */
 
 .today {
   padding: 0 18px;
@@ -247,6 +263,17 @@ body {
   margin: 0 0 12px;
   color: #183f43;
   font-size: 1.25rem;
+}
+
+/* Wenn Essen geöffnet ist:
+   Tagesplan bewusst in den Hintergrund */
+
+.food-card + .today > h2 {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  color: #718085;
+  font-size: 0.9rem;
+  font-weight: normal;
 }
 
 .activity {
@@ -276,7 +303,10 @@ body {
   line-height: 1.4;
 }
 
-/* LILLY-TIPP */
+
+/* =========================
+   LILLY-TIPP
+   ========================= */
 
 .lilly-tip {
   margin: 20px 18px;
@@ -298,7 +328,10 @@ body {
   line-height: 1.45;
 }
 
-/* NAVIGATION UNTEN */
+
+/* =========================
+   NAVIGATION UNTEN
+   ========================= */
 
 .bottom-nav {
   position: fixed;
@@ -334,7 +367,10 @@ body {
   font-size: 0.68rem;
 }
 
-/* PC-ANSICHT */
+
+/* =========================
+   PC-ANSICHT
+   ========================= */
 
 @media (min-width: 600px) {
   body {
