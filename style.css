@@ -19,7 +19,9 @@ body {
 }
 
 
-/* KOPFBEREICH */
+/* =========================
+   KOPFBEREICH
+   ========================= */
 
 .app-header {
   background: #176b70;
@@ -58,7 +60,9 @@ body {
 }
 
 
-/* REISEKARTE */
+/* =========================
+   REISEKARTE
+   ========================= */
 
 .trip-card {
   margin: 18px;
@@ -103,7 +107,9 @@ body {
 }
 
 
-/* SCHNELLWAHL */
+/* =========================
+   SCHNELLWAHL
+   ========================= */
 
 .quick-actions {
   display: grid;
@@ -130,7 +136,123 @@ body {
 }
 
 
-/* TAGESPLAN */
+/* =========================
+   ESSEN / RESTAURANT
+   ========================= */
+
+.food-card {
+  width: auto;
+  margin: 0 18px 22px;
+  padding: 16px;
+  text-align: left;
+  background: #f3f7f7;
+  border-radius: 18px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.food-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+
+.food-header h2 {
+  margin: 3px 0 0;
+  font-size: 1.08rem;
+  color: #183f43;
+}
+
+.food-label {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #176b70;
+}
+
+.close-food {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 3px 6px;
+  border: 0;
+  background: transparent;
+  color: #53666a;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.restaurant {
+  width: 100%;
+  margin: 0;
+  padding: 13px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.restaurant-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.restaurant h3 {
+  margin: 0 0 4px;
+  font-size: 0.98rem;
+  color: #263b3f;
+}
+
+.restaurant p {
+  margin: 6px 0;
+  color: #718085;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.price {
+  margin: 0 !important;
+  font-size: 0.76rem !important;
+}
+
+.distance {
+  flex-shrink: 0;
+  color: #176b70;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.restaurant-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 11px;
+}
+
+.restaurant-actions button {
+  margin: 0;
+  padding: 8px 11px;
+  border: 0;
+  border-radius: 10px;
+  background: #edf3f3;
+  color: #34484c;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.restaurant-actions .primary-action {
+  background: #176b70;
+  color: #ffffff;
+}
+
+.plan-b {
+  margin-top: 9px;
+}
+
+
+/* =========================
+   TAGESPLAN
+   ========================= */
 
 .today {
   padding: 0 18px;
@@ -170,7 +292,9 @@ body {
 }
 
 
-/* LILLY-TIPP */
+/* =========================
+   LILLY-TIPP
+   ========================= */
 
 .lilly-tip {
   margin: 20px 18px;
@@ -193,7 +317,9 @@ body {
 }
 
 
-/* NAVIGATION UNTEN */
+/* =========================
+   NAVIGATION UNTEN
+   ========================= */
 
 .bottom-nav {
   position: fixed;
@@ -210,12 +336,13 @@ body {
 }
 
 .bottom-nav button {
+  margin: 0;
+  padding: 3px;
   border: 0;
   background: transparent;
   color: #53666a;
   font-size: 1.2rem;
   cursor: pointer;
-  padding: 3px;
 }
 
 .bottom-nav button:first-child {
@@ -229,7 +356,387 @@ body {
 }
 
 
-/* PC-ANSICHT */
+/* =========================
+   PC-ANSICHT
+   ========================= */
+
+@media (min-width: 600px) {
+  body {
+    padding: 25px 0;
+  }
+
+  .app {
+    min-height: calc(100vh - 50px);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.13);
+  }
+
+  .bottom-nav {
+    bottom: 25px;
+    border-radius: 0 0 24px 24px;
+  }
+}* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eef3f4;
+  color: #243238;
+}
+
+.app {
+  width: 100%;
+  max-width: 430px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #ffffff;
+  padding-bottom: 90px;
+}
+
+
+/* =========================
+   KOPFBEREICH
+   ========================= */
+
+.app-header {
+  background: #176b70;
+  color: white;
+  padding: 28px 22px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.welcome {
+  margin: 0 0 6px;
+  font-size: 0.9rem;
+  color: #d9eeee;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.2;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.temperature {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+
+/* =========================
+   REISEKARTE
+   ========================= */
+
+.trip-card {
+  margin: 18px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #f3f7f7;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.trip-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e5a72b;
+  flex-shrink: 0;
+}
+
+.trip-title p {
+  margin: 0 0 3px;
+  font-size: 0.72rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #68787c;
+}
+
+.trip-title h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: #183f43;
+}
+
+.trip-subtitle {
+  margin: 12px 0 0 24px;
+  color: #718085;
+  font-size: 0.9rem;
+}
+
+
+/* =========================
+   SCHNELLWAHL
+   ========================= */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 0 18px 22px;
+}
+
+.quick-actions button {
+  border: 0;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 12px 4px;
+  font-size: 0.75rem;
+  color: #34484c;
+  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+
+.quick-actions button span {
+  display: block;
+  font-size: 1.45rem;
+  margin-bottom: 6px;
+}
+
+
+/* =========================
+   ESSEN / RESTAURANT
+   ========================= */
+
+.food-card {
+  width: auto;
+  margin: 0 18px 22px;
+  padding: 16px;
+  text-align: left;
+  background: #f3f7f7;
+  border-radius: 18px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+}
+
+.food-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 13px;
+}
+
+.food-header h2 {
+  margin: 3px 0 0;
+  font-size: 1.08rem;
+  color: #183f43;
+}
+
+.food-label {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #176b70;
+}
+
+.close-food {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 3px 6px;
+  border: 0;
+  background: transparent;
+  color: #53666a;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.restaurant {
+  width: 100%;
+  margin: 0;
+  padding: 13px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.restaurant-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.restaurant h3 {
+  margin: 0 0 4px;
+  font-size: 0.98rem;
+  color: #263b3f;
+}
+
+.restaurant p {
+  margin: 6px 0;
+  color: #718085;
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+
+.price {
+  margin: 0 !important;
+  font-size: 0.76rem !important;
+}
+
+.distance {
+  flex-shrink: 0;
+  color: #176b70;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.restaurant-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 11px;
+}
+
+.restaurant-actions button {
+  margin: 0;
+  padding: 8px 11px;
+  border: 0;
+  border-radius: 10px;
+  background: #edf3f3;
+  color: #34484c;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.restaurant-actions .primary-action {
+  background: #176b70;
+  color: #ffffff;
+}
+
+.plan-b {
+  margin-top: 9px;
+}
+
+
+/* =========================
+   TAGESPLAN
+   ========================= */
+
+.today {
+  padding: 0 18px;
+}
+
+.today > h2 {
+  margin: 0 0 12px;
+  color: #183f43;
+  font-size: 1.25rem;
+}
+
+.activity {
+  display: flex;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e5ebec;
+}
+
+.activity-time {
+  min-width: 48px;
+  color: #176b70;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.activity h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  color: #263b3f;
+}
+
+.activity p {
+  margin: 0;
+  color: #718085;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+
+/* =========================
+   LILLY-TIPP
+   ========================= */
+
+.lilly-tip {
+  margin: 20px 18px;
+  padding: 16px;
+  border-radius: 15px;
+  background: #fff7df;
+  color: #4f4731;
+}
+
+.lilly-tip strong {
+  display: block;
+  margin-bottom: 7px;
+  color: #6a5825;
+}
+
+.lilly-tip p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+
+/* =========================
+   NAVIGATION UNTEN
+   ========================= */
+
+.bottom-nav {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 430px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #ffffff;
+  border-top: 1px solid #dde5e6;
+  padding: 8px 4px 10px;
+}
+
+.bottom-nav button {
+  margin: 0;
+  padding: 3px;
+  border: 0;
+  background: transparent;
+  color: #53666a;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.bottom-nav button:first-child {
+  color: #176b70;
+}
+
+.bottom-nav button span {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.68rem;
+}
+
+
+/* =========================
+   PC-ANSICHT
+   ========================= */
 
 @media (min-width: 600px) {
   body {
