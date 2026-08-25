@@ -3,17 +3,130 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lilly Travel</title>
+
+  <title>Travel Concierge</title>
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>🌍 Lilly Travel</h1>
-    <p>Deine Reise beginnt hier.</p>
+  <main class="app">
 
-    <button id="startButton">🚀 Reise starten</button>
-  </div>
+    <header class="app-header">
+      <div>
+        <p class="welcome">Guten Morgen, Tom & Manu</p>
+        <h1>Euer Reisebegleiter</h1>
+      </div>
+
+      <div class="weather">
+        <span class="temperature">28 °C</span>
+        <span>💧 74 %</span>
+        <span>🌦️ 20 %</span>
+      </div>
+    </header>
+
+
+    <section class="trip-card">
+
+      <div class="trip-title">
+        <span class="status-dot"></span>
+        <div>
+          <p>HEUTE</p>
+          <h2>Bora Bora</h2>
+        </div>
+      </div>
+
+      <p class="trip-subtitle">
+        Dienstag · 25. August
+      </p>
+
+    </section>
+
+
+    <section class="quick-actions">
+
+      <button>
+        <span>🧭</span>
+        Navigation
+      </button>
+
+      <button>
+        <span>🍴</span>
+        Essen
+      </button>
+
+      <button>
+        <span>🌤️</span>
+        Wetter
+      </button>
+
+      <button>
+        <span>🗣️</span>
+        Übersetzen
+      </button>
+
+    </section>
+
+
+    <section class="today">
+
+      <h2>Heute</h2>
+
+      <article class="activity">
+        <span class="activity-time">10:00</span>
+
+        <div>
+          <h3>Matira Beach</h3>
+          <p>Entspannt in den Tag starten.</p>
+        </div>
+      </article>
+
+
+      <article class="activity">
+        <span class="activity-time">13:00</span>
+
+        <div>
+          <h3>Mittagessen</h3>
+          <p>Restaurant-Empfehlung in der Nähe.</p>
+        </div>
+      </article>
+
+
+      <article class="activity">
+        <span class="activity-time">17:30</span>
+
+        <div>
+          <h3>Sonnenuntergang</h3>
+          <p>Schöner Aussichtspunkt ohne großen Umweg.</p>
+        </div>
+      </article>
+
+    </section>
+
+
+    <section class="lilly-tip">
+
+      <strong>💡 Lilly-Tipp</strong>
+
+      <p>
+        Heute ruhig angehen lassen. Für Matira Beach reicht leichte
+        Kleidung – Wasser und Sonnenschutz mitnehmen.
+      </p>
+
+    </section>
+
+
+    <nav class="bottom-nav">
+
+      <button>🏠<span>Heute</span></button>
+      <button>🗺️<span>Reise</span></button>
+      <button>❤️<span>Favoriten</span></button>
+      <button>🆘<span>Hilfe</span></button>
+
+    </nav>
+
+  </main>
 
   <script src="script.js"></script>
 
