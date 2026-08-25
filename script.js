@@ -7,22 +7,101 @@ let foodCard = null;
 
 
 /* =========================
+   RESTAURANT-DATEN
+   ========================= */
+
+const restaurants = {
+  snackMatira: {
+    name: "Snack Matira",
+    price: "$$",
+    type: "Polynesisch · unkompliziert",
+    distance: "5 Min.",
+    description:
+      "Lokale Küche direkt in der Nähe von Matira Beach. Gut für ein entspanntes Mittagessen.",
+    addressLine1: "Beispielstraße 17",
+    addressLine2: "98730 Bora Bora"
+  },
+
+  fareManuia: {
+    name: "Fare Manuia",
+    price: "$$",
+    type: "Polynesisch · lokal",
+    distance: "8 Min.",
+    description:
+      "Lokale Küche in entspannter Atmosphäre. Eine gute Alternative in der Nähe.",
+    addressLine1: "Beispielweg 155",
+    addressLine2: "98730 Bora Bora"
+  }
+};
+
+
+/* =========================
+   RESTAURANT-KARTE
+   ========================= */
+
+function createRestaurantCard(restaurant, idPrefix) {
+
+  return `
+    <article class="restaurant">
+
+      <div class="restaurant-top">
+
+        <div>
+          <h3>${restaurant.name}</h3>
+
+          <p class="price">
+            ${restaurant.price} · ${restaurant.type}
+          </p>
+        </div>
+
+        <span class="distance">
+          📍 ${restaurant.distance}
+        </span>
+
+      </div>
+
+      <p>
+        ${restaurant.description}
+      </p>
+
+      <p class="restaurant-address">
+        📍 ${restaurant.addressLine1}<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;${restaurant.addressLine2}
+      </p>
+
+      <div class="restaurant-actions">
+
+        <button
+          class="primary-action"
+          id="${idPrefix}Drive">
+          🧭 Hinfahren
+        </button>
+
+        <button id="${idPrefix}Call">
+          📞 Anrufen
+        </button>
+
+      </div>
+
+    </article>
+  `;
+}
+
+
+/* =========================
    ESSEN ÖFFNEN
    ========================= */
 
 function openFood() {
 
-  // Tagesübersicht ausblenden
   if (todaySection) {
     todaySection.style.display = "none";
   }
 
-  // Lilly-Tipp der Hauptseite ausblenden
   if (lillyTip) {
     lillyTip.style.display = "none";
   }
 
-  // Restaurantbereich nur einmal erzeugen
   if (!foodCard) {
 
     foodCard = document.createElement("section");
@@ -45,83 +124,19 @@ function openFood() {
 
       </div>
 
+      ${createRestaurantCard(
+        restaurants.snackMatira,
+        "snackMatira"
+      )}
 
-      <article class="restaurant">
-
-        <div class="restaurant-top">
-
-          <div>
-            <h3>Snack Matira</h3>
-            <p class="price">$$ · Polynesisch · unkompliziert</p>
-          </div>
-
-          <span class="distance">📍 5 Min.</span>
-
-        </div>
-
-        <p>
-          Lokale Küche direkt in der Nähe von Matira Beach.
-          Gut für ein entspanntes Mittagessen.
-        </p>
-
-        <div class="restaurant-actions">
-
-          <button
-            class="primary-action"
-            id="driveToSnackMatira">
-            🧭 Hinfahren
-          </button>
-
-          <button id="callSnackMatira">
-            📞 Anrufen
-          </button>
-
-        </div>
-
-      </article>
-
-
-      <article class="restaurant restaurant-second">
-
-        <div class="restaurant-top">
-
-          <div>
-            <h3>Fare Manuia</h3>
-            <p class="price">$$ · Polynesisch · lokal</p>
-          </div>
-
-          <span class="distance">📍 8 Min.</span>
-
-        </div>
-
-        <p>
-          Lokale Küche in entspannter Atmosphäre.
-          Eine gute Alternative in der Nähe.
-        </p>
-
-        <div class="restaurant-actions">
-
-          <button
-            class="primary-action"
-            id="driveToFareManuia">
-            🧭 Hinfahren
-          </button>
-
-          <button id="callFareManuia">
-            📞 Anrufen
-          </button>
-
-        </div>
-
-      </article>
+      ${createRestaurantCard(
+        restaurants.fareManuia,
+        "fareManuia"
+      )}
     `;
 
-
-    // Restaurantbereich direkt unter Schnellwahl einsetzen
     quickActions.insertAdjacentElement("afterend", foodCard);
 
-
-    // Schließen-Button aktivieren
     const closeFood = document.getElementById("closeFood");
 
     if (closeFood) {
@@ -129,7 +144,6 @@ function openFood() {
     }
   }
 
-  // Bereits erzeugte Restaurantansicht wieder anzeigen
   foodCard.style.display = "";
 }
 
