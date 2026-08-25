@@ -22,7 +22,7 @@ function openFood() {
     lillyTip.style.display = "none";
   }
 
-  // Restaurantkarte nur einmal erzeugen
+  // Restaurantbereich nur einmal erzeugen
   if (!foodCard) {
 
     foodCard = document.createElement("section");
@@ -68,11 +68,11 @@ function openFood() {
 
           <button
             class="primary-action"
-            id="driveToRestaurant">
+            id="driveToSnackMatira">
             🧭 Hinfahren
           </button>
 
-          <button id="callRestaurant">
+          <button id="callSnackMatira">
             📞 Anrufen
           </button>
 
@@ -81,30 +81,55 @@ function openFood() {
       </article>
 
 
-      <article class="restaurant plan-b">
+      <article class="restaurant restaurant-second">
 
-        <span class="food-label">PLAN B</span>
+        <div class="restaurant-top">
 
-        <h3>Fare Manuia</h3>
+          <div>
+            <h3>Fare Manuia</h3>
+            <p class="price">$$ · Polynesisch · lokal</p>
+          </div>
+
+          <span class="distance">📍 8 Min.</span>
+
+        </div>
 
         <p>
-          Alternative in der Nähe · $$
+          Lokale Küche in entspannter Atmosphäre.
+          Eine gute Alternative in der Nähe.
         </p>
+
+        <div class="restaurant-actions">
+
+          <button
+            class="primary-action"
+            id="driveToFareManuia">
+            🧭 Hinfahren
+          </button>
+
+          <button id="callFareManuia">
+            📞 Anrufen
+          </button>
+
+        </div>
 
       </article>
     `;
 
-    // Restaurantkarte direkt unter der Schnellwahl einsetzen
+
+    // Restaurantbereich direkt unter Schnellwahl einsetzen
     quickActions.insertAdjacentElement("afterend", foodCard);
 
 
     // Schließen-Button aktivieren
     const closeFood = document.getElementById("closeFood");
 
-    closeFood.addEventListener("click", closeFoodView);
+    if (closeFood) {
+      closeFood.addEventListener("click", closeFoodView);
+    }
   }
 
-  // Falls Karte bereits existiert:
+  // Bereits erzeugte Restaurantansicht wieder anzeigen
   foodCard.style.display = "";
 }
 
