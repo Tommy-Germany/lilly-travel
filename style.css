@@ -57,6 +57,14 @@ body {
 .temperature {
   font-size: 1.25rem;
   font-weight: bold;
+  .weather span {
+    display: block;
+    line-height: 1.45;
+}
+
+#rain {
+    color: #ffffff;
+}
 }
 
 
