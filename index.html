@@ -1,163 +1,239 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Travel Concierge</title>
+  <title>Lilly Travel</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <main class="app">
+<main class="app">
 
-    <header class="app-header">
+  <header class="app-header">
+
+    <div class="lilly-header">
+
+      <img
+        src="images/lilly.png"
+        alt="Lilly"
+        class="lilly-avatar">
 
       <div>
-        <p class="welcome">Guten Morgen, Tom & Manu</p>
-        <h1>Euer Reisebegleiter</h1>
-      </div>
 
-      <div class="weather">
-        <span class="temperature">28 °C</span>
-        <span>💧 74 %</span>
-        <span>🌦️ 20 %</span>
-      </div>
+        <p class="welcome">
+          Schön, dass Sie da sind.
+        </p>
 
-    </header>
+        <h1>
+          Lilly Travel
+        </h1>
 
-
-    <section class="trip-card">
-
-      <div class="trip-title">
-
-        <span class="status-dot"></span>
-
-        <div>
-          <p>HEUTE</p>
-          <h2>Bora Bora</h2>
-        </div>
+        <p class="trip-status">
+          Noch 18 Tage bis zum Abflug
+        </p>
 
       </div>
 
-      <p class="trip-subtitle">
-        Dienstag · 25. August
-      </p>
+    </div>
 
-    </section>
+    <div class="weather">
 
+      <span class="temperature">
+        ☀️ 31°
+      </span>
 
-    <section class="quick-actions">
+      <span>
+        💧 72 %
+      </span>
 
-      <button id="navigationButton">
-        <span>🧭</span>
-        Navigation
-      </button>
+      <span>
+        🌬 12 km/h
+      </span>
 
-      <button id="foodButton">
-        <span>🍴</span>
-        Essen
-      </button>
+    </div>
 
-      <button id="weatherButton">
-        <span>🌤️</span>
-        Wetter
-      </button>
+  </header>
 
-      <button id="translateButton">
-        <span>🗣️</span>
-        Übersetzen
-      </button>
+  <section class="trip-card">
 
-    </section>
+    <div class="trip-title">
 
+      <span class="status-dot"></span>
 
-    <section class="today">
+      <div>
 
-      <h2>Heute</h2>
+        <p>
+          NÄCHSTES ZIEL
+        </p>
 
-      <article class="activity">
+        <h2>
+          Bora Bora
+        </h2>
 
-        <span class="activity-time">10:00</span>
+      </div>
 
-        <div>
-          <h3>Matira Beach</h3>
-          <p>Entspannt in den Tag starten.</p>
-        </div>
+    </div>
 
-      </article>
+    <p class="trip-subtitle">
 
+      Abflug
+      17.09.2026
 
-      <article class="activity">
+    </p>
 
-        <span class="activity-time">13:00</span>
+  </section>
 
-        <div>
-          <h3>Mittagessen</h3>
-          <p>Restaurant-Empfehlung in der Nähe.</p>
-        </div>
+  <section class="quick-actions">
 
-      </article>
+    <button>
+      <span>🧳</span>
+      Reise
+    </button>
 
+    <button id="foodButton">
+      <span>🍴</span>
+      Genuss
+    </button>
 
-      <article class="activity">
+    <button>
+      <span>📷</span>
+      Foto
+    </button>
 
-        <span class="activity-time">17:30</span>
+    <button>
+      <span>⚙️</span>
+      Mehr
+    </button>
 
-        <div>
-          <h3>Sonnenuntergang</h3>
-          <p>Schöner Aussichtspunkt ohne großen Umweg.</p>
-        </div>
+  </section>
 
-      </article>
+  <section class="today">
 
-    </section>
+    <h2>
+      Dashboard
+    </h2>
 
+    <div class="activity">
 
-    <section class="lilly-tip">
+      <div class="activity-time">
+        08:30
+      </div>
 
-      <strong>💡 Lilly-Tipp</strong>
+      <div>
 
-      <p>
-        Heute ruhig angehen lassen. Für Matira Beach reicht leichte
-        Kleidung – Wasser und Sonnenschutz mitnehmen.
-      </p>
+        <h3>
+          Frühstück
+        </h3>
 
-    </section>
+        <p>
 
+          Empfehlung von Lilly
 
-    <nav class="bottom-nav">
+        </p>
 
-      <button>
-        🏠
-        <span>Heute</span>
-      </button>
+      </div>
 
-      <button>
-        🗺️
-        <span>Reise</span>
-      </button>
+    </div>
 
-      <button>
-        ❤️
-        <span>Favoriten</span>
-      </button>
+    <div class="activity">
 
-      <button>
-        🆘
-        <span>Hilfe</span>
-      </button>
+      <div class="activity-time">
+        10:00
+      </div>
 
-    </nav>
+      <div>
 
-  </main>
+        <h3>
+          Matira Beach
+        </h3>
 
+        <p>
 
-  <script src="script.js?v=3"></script>
+          Heute ideales Wetter.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section class="lilly-tip">
+
+    <strong>
+
+      💛 Lilly empfiehlt
+
+    </strong>
+
+    <p>
+
+      Heute lohnt sich ein früher Besuch
+      am Matira Beach.
+
+    </p>
+
+  </section>
+
+  <nav class="bottom-nav">
+
+    <button>
+
+      🏠
+
+      <span>
+
+        Dashboard
+
+      </span>
+
+    </button>
+
+    <button>
+
+      🧳
+
+      <span>
+
+        Reise
+
+      </span>
+
+    </button>
+
+    <button>
+
+      🍴
+
+      <span>
+
+        Genuss
+
+      </span>
+
+    </button>
+
+    <button>
+
+      ⚙️
+
+      <span>
+
+        Mehr
+
+      </span>
+
+    </button>
+
+  </nav>
+
+</main>
+
+<script src="script.js"></script>
 
 </body>
-
 </html>
