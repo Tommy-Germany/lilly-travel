@@ -387,5 +387,31 @@ body {
   .bottom-nav {
     bottom: 25px;
     border-radius: 0 0 24px 24px;
-  }
+  }/* =========================
+   LILLY HEADER
+   ========================= */
+
+.lilly-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lilly-avatar {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid rgba(255,255,255,0.25);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  flex-shrink: 0;
+}
+
+.trip-status {
+  margin: 8px 0 0;
+  font-size: 0.90rem;
+  font-weight: 600;
+  color: #dff5f4;
+}
 }
