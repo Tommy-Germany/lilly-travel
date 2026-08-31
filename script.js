@@ -20,133 +20,176 @@ const weather = {
 
 function updateWeather() {
 
-  const temp = document.querySelector(".temperature");
-  const weatherItems = document.querySelectorAll(".weather span");
+  const temperature =
+    document.querySelector(".temperature");
 
-  if (!temp || weatherItems.length < 5) return;
+  const weatherItems =
+    document.querySelectorAll(".weather span");
 
-  temp.textContent =
+  const weatherText =
+    document.querySelector(".weather-text");
+
+  if (!temperature) return;
+
+  temperature.textContent =
     `${weather.icon} ${weather.temperature}°`;
 
-  weatherItems[1].textContent =
-    `💧 ${weather.humidity} %`;
+  if (weatherItems.length >= 4) {
 
-  weatherItems[2].textContent =
-    `🌬 ${weather.wind} km/h`;
+    weatherItems[1].textContent =
+      `💧 ${weather.humidity} %`;
 
-  weatherItems[3].textContent =
-    `☔ ${weather.rain} %`;
+    weatherItems[2].textContent =
+      `🌬 ${weather.wind} km/h`;
 
-  weatherItems[4].textContent =
-    weather.text;
+    weatherItems[3].textContent =
+      `☔ ${weather.rain} %`;
+
+  }
+
+  if (weatherText) {
+
+    weatherText.textContent =
+      weather.text;
+
+  }
+
 }
 
 /* =========================
-   RESTAURANT-DATEN
+   RESTAURANTS
    ========================= */
 
 const restaurants = {
 
   snackMatira: {
+
     name: "Snack Matira",
     price: "$$",
     type: "Polynesisch · unkompliziert",
     distance: "5 Min.",
     description:
-      "Lokale Küche direkt in der Nähe von Matira Beach. Gut für ein entspanntes Mittagessen.",
-    addressLine1: "Beispielstraße 17",
-    addressLine2: "98730 Bora Bora"
+      "Lokale Küche direkt am Matira Beach.",
+
+    addressLine1:
+      "Beispielstraße 17",
+
+    addressLine2:
+      "98730 Bora Bora"
+
   },
 
   fareManuia: {
+
     name: "Fare Manuia",
     price: "$$",
     type: "Polynesisch · lokal",
     distance: "8 Min.",
     description:
-      "Lokale Küche in entspannter Atmosphäre. Eine gute Alternative in der Nähe.",
-    addressLine1: "Beispielweg 155",
-    addressLine2: "98730 Bora Bora"
+      "Ruhiges Restaurant mit regionaler Küche.",
+
+    addressLine1:
+      "Beispielweg 155",
+
+    addressLine2:
+      "98730 Bora Bora"
+
   }
 
 };
 
 /* =========================
-   RESTAURANT-KARTE
+   RESTAURANTKARTE
    ========================= */
 
 function createRestaurantCard(restaurant, idPrefix) {
 
   return `
-    <article class="restaurant">
 
-      <div class="restaurant-top">
+  <article class="restaurant">
 
-        <div>
+    <div class="restaurant-top">
 
-          <h3>${restaurant.name}</h3>
+      <div>
 
-          <p class="price">
-            ${restaurant.price} · ${restaurant.type}
-          </p>
+        <h3>${restaurant.name}</h3>
 
-        </div>
+        <p class="price">
 
-        <span class="distance">
-          📍 ${restaurant.distance}
-        </span>
+          ${restaurant.price}
+          ·
+          ${restaurant.type}
 
-      </div>
-
-      <p>
-        ${restaurant.description}
-      </p>
-
-      <p class="restaurant-address">
-        📍 ${restaurant.addressLine1}<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;${restaurant.addressLine2}
-      </p>
-
-      <div class="restaurant-actions">
-
-        <button
-          class="primary-action"
-          id="${idPrefix}Drive">
-
-          🧭 Hinfahren
-
-        </button>
-
-        <button id="${idPrefix}Call">
-
-          📞 Anrufen
-
-        </button>
+        </p>
 
       </div>
 
-    </article>
+      <span class="distance">
+
+        📍 ${restaurant.distance}
+
+      </span>
+
+    </div>
+
+    <p>
+
+      ${restaurant.description}
+
+    </p>
+
+    <p class="restaurant-address">
+
+      📍 ${restaurant.addressLine1}<br>
+
+      &nbsp;&nbsp;&nbsp;
+
+      ${restaurant.addressLine2}
+
+    </p>
+
+    <div class="restaurant-actions">
+
+      <button
+      class="primary-action">
+
+      🧭 Hinfahren
+
+      </button>
+
+      <button>
+
+      📞 Anrufen
+
+      </button>
+
+    </div>
+
+  </article>
+
   `;
+
 }
 
 /* =========================
-   ESSEN ÖFFNEN
+   ESSEN
    ========================= */
 
 function openFood() {
 
-  if (todaySection) {
+  if (todaySection)
     todaySection.style.display = "none";
-  }
 
-  if (lillyTip) {
+  if (lillyTip)
     lillyTip.style.display = "none";
-  }
 
   if (!foodCard) {
 
-    foodCard = document.createElement("section");
-    foodCard.className = "food-card";
+    foodCard =
+      document.createElement("section");
+
+    foodCard.className =
+      "food-card";
 
     foodCard.innerHTML = `
 
@@ -155,18 +198,22 @@ function openFood() {
         <div>
 
           <span class="food-label">
+
             LILLY EMPFIEHLT
+
           </span>
 
           <h2>
+
             🍴 Essen in der Nähe
+
           </h2>
 
         </div>
 
         <button
-          class="close-food"
-          id="closeFood">
+          id="closeFood"
+          class="close-food">
 
           ×
 
@@ -174,9 +221,17 @@ function openFood() {
 
       </div>
 
-      ${createRestaurantCard(restaurants.snackMatira,"snackMatira")}
+      ${createRestaurantCard(
+        restaurants.snackMatira,
+        "snack"
+      )}
 
-      ${createRestaurantCard(restaurants.fareManuia,"fareManuia")}
+      <br>
+
+      ${createRestaurantCard(
+        restaurants.fareManuia,
+        "fare"
+      )}
 
     `;
 
@@ -191,35 +246,23 @@ function openFood() {
         "click",
         closeFoodView
       );
+
   }
 
   foodCard.style.display = "";
 
 }
 
-/* =========================
-   ESSEN SCHLIESSEN
-   ========================= */
-
 function closeFoodView() {
 
-  if (foodCard) {
-
+  if (foodCard)
     foodCard.style.display = "none";
 
-  }
-
-  if (todaySection) {
-
+  if (todaySection)
     todaySection.style.display = "";
 
-  }
-
-  if (lillyTip) {
-
+  if (lillyTip)
     lillyTip.style.display = "";
-
-  }
 
 }
 
