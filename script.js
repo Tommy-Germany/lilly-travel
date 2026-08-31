@@ -174,4 +174,27 @@ function closeFoodView() {
 
 if (foodButton) {
   foodButton.addEventListener("click", openFood);
+   /* =========================
+   WETTER
+   ========================= */
+
+const weather = {
+  icon: "☀️",
+  temperature: 31,
+  humidity: 72,
+  wind: 12,
+  rain: 10
+};
+
+document.getElementById("temperature").textContent =
+`${weather.icon} ${weather.temperature}°`;
+
+document.getElementById("humidity").textContent =
+`💧 ${weather.humidity} %`;
+
+document.getElementById("wind").textContent =
+`🌬 ${weather.wind} km/h`;
+
+document.getElementById("rain").textContent =
+`☔ ${weather.rain} %`;
 }
