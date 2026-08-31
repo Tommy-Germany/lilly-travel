@@ -18,25 +18,42 @@ body {
   padding-bottom: 90px;
 }
 
-
 /* =========================
-   KOPFBEREICH
+   HEADER
    ========================= */
 
 .app-header {
   background: #176b70;
   color: white;
-  padding: 28px 22px 24px;
+  padding: 26px 22px;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 15px;
+  gap: 18px;
+}
+
+.lilly-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lilly-avatar {
+  width: 112px;
+  height: 112px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,.25);
+  box-shadow: 0 8px 18px rgba(0,0,0,.18);
+  flex-shrink: 0;
 }
 
 .welcome {
-  margin: 0 0 6px;
-  font-size: 0.9rem;
-  color: #d9eeee;
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
 }
 
 .app-header h1 {
@@ -45,28 +62,38 @@ body {
   line-height: 1.2;
 }
 
+.trip-status {
+  margin-top: 10px;
+  color: #dff5f4;
+  font-size: .92rem;
+  font-weight: 600;
+}
+
 .weather {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 4px;
-  font-size: 0.82rem;
+  gap: 3px;
   white-space: nowrap;
 }
 
+.weather span {
+  display: block;
+  line-height: 1.45;
+}
+
 .temperature {
-  font-size: 1.25rem;
+  font-size: 1.30rem;
   font-weight: bold;
-  .weather span {
-    display: block;
-    line-height: 1.45;
 }
 
-#rain {
-    color: #ffffff;
+.weather-text {
+  margin-top: 8px;
+  font-size: .72rem;
+  color: #d8f2f2;
+  text-align: right;
+  font-style: italic;
 }
-}
-
 
 /* =========================
    REISEKARTE
@@ -77,7 +104,7 @@ body {
   padding: 20px;
   border-radius: 18px;
   background: #f3f7f7;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 3px 12px rgba(0,0,0,.07);
 }
 
 .trip-title {
@@ -91,12 +118,11 @@ body {
   height: 12px;
   border-radius: 50%;
   background: #e5a72b;
-  flex-shrink: 0;
 }
 
 .trip-title p {
   margin: 0 0 3px;
-  font-size: 0.72rem;
+  font-size: .72rem;
   font-weight: bold;
   letter-spacing: 1px;
   color: #68787c;
@@ -111,9 +137,7 @@ body {
 .trip-subtitle {
   margin: 12px 0 0 24px;
   color: #718085;
-  font-size: 0.9rem;
 }
-
 
 /* =========================
    SCHNELLWAHL
@@ -121,167 +145,96 @@ body {
 
 .quick-actions {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4,1fr);
   gap: 8px;
   padding: 0 18px 22px;
 }
 
 .quick-actions button {
   border: 0;
-  background: #ffffff;
   border-radius: 14px;
+  background: #fff;
   padding: 12px 4px;
-  font-size: 0.75rem;
+  font-size: .75rem;
   color: #34484c;
-  box-shadow: 0 2px 9px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 9px rgba(0,0,0,.08);
   cursor: pointer;
 }
 
-.quick-actions button span {
+.quick-actions span {
   display: block;
   font-size: 1.45rem;
   margin-bottom: 6px;
 }
 
-
 /* =========================
-   ESSEN / RESTAURANT
+   ESSEN
    ========================= */
 
 .food-card {
-  width: auto;
   margin: 0 18px 18px;
   padding: 16px;
-  text-align: left;
   background: #f3f7f7;
   border-radius: 18px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+  box-shadow: 0 3px 12px rgba(0,0,0,.07);
 }
 
 .food-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
   margin-bottom: 13px;
-}
-
-.food-header h2 {
-  margin: 3px 0 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #183f43;
 }
 
 .food-label {
   display: block;
-  font-size: 0.64rem;
+  font-size: .64rem;
   font-weight: bold;
   letter-spacing: 1px;
   color: #176b70;
 }
 
 .close-food {
-  flex-shrink: 0;
-  margin: 0;
-  padding: 3px 6px;
   border: 0;
   background: transparent;
-  color: #53666a;
-  font-size: 1rem;
   cursor: pointer;
+  font-size: 1rem;
 }
 
 .restaurant {
-  width: 100%;
-  margin: 0;
+  background: white;
   padding: 13px;
-  background: #ffffff;
   border-radius: 12px;
 }
 
 .restaurant-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-.restaurant h3 {
-  margin: 0 0 4px;
-  font-size: 0.98rem;
-  color: #263b3f;
-}
-
-.restaurant p {
-  margin: 6px 0;
-  color: #718085;
-  font-size: 0.82rem;
-  line-height: 1.35;
-}
-
-.price {
-  margin: 0 !important;
-  font-size: 0.76rem !important;
-}
-
-.distance {
-  flex-shrink: 0;
-  color: #176b70;
-  font-size: 0.72rem;
-  white-space: nowrap;
 }
 
 .restaurant-actions {
   display: flex;
   gap: 8px;
-  margin-top: 11px;
+  margin-top: 12px;
 }
 
 .restaurant-actions button {
-  margin: 0;
-  padding: 8px 11px;
   border: 0;
   border-radius: 10px;
-  background: #edf3f3;
-  color: #34484c;
-  font-size: 0.78rem;
+  padding: 8px 11px;
   cursor: pointer;
 }
 
-.restaurant-actions .primary-action {
+.primary-action {
   background: #176b70;
-  color: #ffffff;
+  color: white;
 }
-
-.plan-b {
-  margin-top: 9px;
-}
-
 
 /* =========================
-   TAGESPLAN
+   DASHBOARD
    ========================= */
 
 .today {
   padding: 0 18px;
-}
-
-.today > h2 {
-  margin: 0 0 12px;
-  color: #183f43;
-  font-size: 1.25rem;
-}
-
-/* Wenn Essen geöffnet ist:
-   Tagesplan bewusst in den Hintergrund */
-
-.food-card + .today > h2 {
-  margin-top: 4px;
-  margin-bottom: 8px;
-  color: #718085;
-  font-size: 0.9rem;
-  font-weight: normal;
 }
 
 .activity {
@@ -295,50 +248,17 @@ body {
   min-width: 48px;
   color: #176b70;
   font-weight: bold;
-  font-size: 0.9rem;
 }
-
-.activity h3 {
-  margin: 0 0 4px;
-  font-size: 1rem;
-  color: #263b3f;
-}
-
-.activity p {
-  margin: 0;
-  color: #718085;
-  font-size: 0.88rem;
-  line-height: 1.4;
-}
-
-
-/* =========================
-   LILLY-TIPP
-   ========================= */
 
 .lilly-tip {
   margin: 20px 18px;
   padding: 16px;
-  border-radius: 15px;
   background: #fff7df;
-  color: #4f4731;
+  border-radius: 15px;
 }
-
-.lilly-tip strong {
-  display: block;
-  margin-bottom: 7px;
-  color: #6a5825;
-}
-
-.lilly-tip p {
-  margin: 0;
-  font-size: 0.9rem;
-  line-height: 1.45;
-}
-
 
 /* =========================
-   NAVIGATION UNTEN
+   NAVIGATION
    ========================= */
 
 .bottom-nav {
@@ -349,77 +269,48 @@ body {
   width: 100%;
   max-width: 430px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  background: #ffffff;
+  grid-template-columns: repeat(4,1fr);
+  background: white;
   border-top: 1px solid #dde5e6;
   padding: 8px 4px 10px;
 }
 
 .bottom-nav button {
-  margin: 0;
-  padding: 3px;
   border: 0;
   background: transparent;
-  color: #53666a;
-  font-size: 1.2rem;
   cursor: pointer;
+}
+
+.bottom-nav span {
+  display: block;
+  margin-top: 3px;
+  font-size: .68rem;
 }
 
 .bottom-nav button:first-child {
   color: #176b70;
 }
 
-.bottom-nav button span {
-  display: block;
-  margin-top: 3px;
-  font-size: 0.68rem;
-}
-
-
 /* =========================
-   PC-ANSICHT
+   DESKTOP
    ========================= */
 
-@media (min-width: 600px) {
-  body {
-    padding: 25px 0;
-  }
+@media (min-width:600px){
 
-  .app {
-    min-height: calc(100vh - 50px);
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.13);
-  }
-
-  .bottom-nav {
-    bottom: 25px;
-    border-radius: 0 0 24px 24px;
-  }/* =========================
-   LILLY HEADER
-   ========================= */
-
-.lilly-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+body{
+padding:25px 0;
 }
 
-.lilly-avatar {
-  width: 92px;
-  height: 92px;
-  object-fit: cover;
-  border-radius: 50%;
-  background: #ffffff;
-  border: 3px solid rgba(255,255,255,0.25);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-  flex-shrink: 0;
+.app{
+min-height:calc(100vh - 50px);
+border-radius:24px;
+overflow:hidden;
+box-shadow:0 10px 35px rgba(0,0,0,.13);
 }
 
-.trip-status {
-  margin: 8px 0 0;
-  font-size: 0.90rem;
-  font-weight: 600;
-  color: #dff5f4;
+.bottom-nav{
+bottom:25px;
+border-radius:0 0 24px 24px;
 }
+
 }
