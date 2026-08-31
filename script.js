@@ -5,12 +5,48 @@ const quickActions = document.querySelector(".quick-actions");
 
 let foodCard = null;
 
+/* =========================
+   WETTER
+   ========================= */
+
+const weather = {
+  icon: "☀️",
+  temperature: 31,
+  humidity: 72,
+  wind: 12,
+  rain: 10,
+  text: "Perfektes Strandwetter"
+};
+
+function updateWeather() {
+
+  const temp = document.querySelector(".temperature");
+  const weatherItems = document.querySelectorAll(".weather span");
+
+  if (!temp || weatherItems.length < 5) return;
+
+  temp.textContent =
+    `${weather.icon} ${weather.temperature}°`;
+
+  weatherItems[1].textContent =
+    `💧 ${weather.humidity} %`;
+
+  weatherItems[2].textContent =
+    `🌬 ${weather.wind} km/h`;
+
+  weatherItems[3].textContent =
+    `☔ ${weather.rain} %`;
+
+  weatherItems[4].textContent =
+    weather.text;
+}
 
 /* =========================
    RESTAURANT-DATEN
    ========================= */
 
 const restaurants = {
+
   snackMatira: {
     name: "Snack Matira",
     price: "$$",
@@ -32,8 +68,8 @@ const restaurants = {
     addressLine1: "Beispielweg 155",
     addressLine2: "98730 Bora Bora"
   }
-};
 
+};
 
 /* =========================
    RESTAURANT-KARTE
@@ -47,11 +83,13 @@ function createRestaurantCard(restaurant, idPrefix) {
       <div class="restaurant-top">
 
         <div>
+
           <h3>${restaurant.name}</h3>
 
           <p class="price">
             ${restaurant.price} · ${restaurant.type}
           </p>
+
         </div>
 
         <span class="distance">
@@ -74,11 +112,15 @@ function createRestaurantCard(restaurant, idPrefix) {
         <button
           class="primary-action"
           id="${idPrefix}Drive">
+
           🧭 Hinfahren
+
         </button>
 
         <button id="${idPrefix}Call">
+
           📞 Anrufen
+
         </button>
 
       </div>
@@ -86,7 +128,6 @@ function createRestaurantCard(restaurant, idPrefix) {
     </article>
   `;
 }
-
 
 /* =========================
    ESSEN ÖFFNEN
@@ -108,45 +149,53 @@ function openFood() {
     foodCard.className = "food-card";
 
     foodCard.innerHTML = `
+
       <div class="food-header">
 
         <div>
-          <span class="food-label">LILLY EMPFIEHLT</span>
-          <h2>🍴 Essen in der Nähe</h2>
+
+          <span class="food-label">
+            LILLY EMPFIEHLT
+          </span>
+
+          <h2>
+            🍴 Essen in der Nähe
+          </h2>
+
         </div>
 
         <button
           class="close-food"
-          id="closeFood"
-          aria-label="Essensansicht schließen">
+          id="closeFood">
+
           ×
+
         </button>
 
       </div>
 
-      ${createRestaurantCard(
-        restaurants.snackMatira,
-        "snackMatira"
-      )}
+      ${createRestaurantCard(restaurants.snackMatira,"snackMatira")}
 
-      ${createRestaurantCard(
-        restaurants.fareManuia,
-        "fareManuia"
-      )}
+      ${createRestaurantCard(restaurants.fareManuia,"fareManuia")}
+
     `;
 
-    quickActions.insertAdjacentElement("afterend", foodCard);
+    quickActions.insertAdjacentElement(
+      "afterend",
+      foodCard
+    );
 
-    const closeFood = document.getElementById("closeFood");
-
-    if (closeFood) {
-      closeFood.addEventListener("click", closeFoodView);
-    }
+    document
+      .getElementById("closeFood")
+      .addEventListener(
+        "click",
+        closeFoodView
+      );
   }
 
   foodCard.style.display = "";
-}
 
+}
 
 /* =========================
    ESSEN SCHLIESSEN
@@ -155,46 +204,36 @@ function openFood() {
 function closeFoodView() {
 
   if (foodCard) {
+
     foodCard.style.display = "none";
+
   }
 
   if (todaySection) {
+
     todaySection.style.display = "";
+
   }
 
   if (lillyTip) {
+
     lillyTip.style.display = "";
+
   }
+
 }
 
-
 /* =========================
-   ESSEN-BUTTON
+   START
    ========================= */
+
+updateWeather();
 
 if (foodButton) {
-  foodButton.addEventListener("click", openFood);
-   /* =========================
-   WETTER
-   ========================= */
 
-const weather = {
-  icon: "☀️",
-  temperature: 31,
-  humidity: 72,
-  wind: 12,
-  rain: 10
-};
+  foodButton.addEventListener(
+    "click",
+    openFood
+  );
 
-document.getElementById("temperature").textContent =
-`${weather.icon} ${weather.temperature}°`;
-
-document.getElementById("humidity").textContent =
-`💧 ${weather.humidity} %`;
-
-document.getElementById("wind").textContent =
-`🌬 ${weather.wind} km/h`;
-
-document.getElementById("rain").textContent =
-`☔ ${weather.rain} %`;
 }
